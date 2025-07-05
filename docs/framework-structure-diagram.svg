@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .component { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #333; }
+      .subcomponent { font-family: Arial, sans-serif; font-size: 10px; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 9px; fill: #666; }
+      .core { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .agents { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .config { fill: #e8f5e8; stroke: #388e3c; stroke-width: 2; }
+      .plugins { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .tools { fill: #fce4ec; stroke: #c2185b; stroke-width: 2; }
+      .arrow { stroke: #333; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .interface { stroke: #666; stroke-width: 1; stroke-dasharray: 3,3; fill: none; }
+    </style>
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#333" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" class="title">Framework Structure - src/ Directory</text>
+  
+  <!-- Framework Core -->
+  <rect x="300" y="50" width="200" height="120" class="core" rx="8"/>
+  <text x="400" y="70" text-anchor="middle" class="component">Framework Core</text>
+  
+  <!-- Event Bus -->
+  <rect x="310" y="80" width="80" height="25" fill="#bbdefb" stroke="#1976d2" rx="3"/>
+  <text x="350" y="95" text-anchor="middle" class="subcomponent">Event Bus</text>
+  
+  <!-- Service Registry -->
+  <rect x="410" y="80" width="80" height="25" fill="#bbdefb" stroke="#1976d2" rx="3"/>
+  <text x="450" y="95" text-anchor="middle" class="subcomponent">Service Registry</text>
+  
+  <!-- Configuration -->
+  <rect x="310" y="115" width="80" height="25" fill="#bbdefb" stroke="#1976d2" rx="3"/>
+  <text x="350" y="130" text-anchor="middle" class="subcomponent">Configuration</text>
+  
+  <!-- Logger -->
+  <rect x="410" y="115" width="80" height="25" fill="#bbdefb" stroke="#1976d2" rx="3"/>
+  <text x="450" y="130" text-anchor="middle" class="subcomponent">Logger</text>
+  
+  <!-- Agents -->
+  <rect x="50" y="200" width="200" height="140" class="agents" rx="8"/>
+  <text x="150" y="220" text-anchor="middle" class="component">Agents (src/agents/)</text>
+  
+  <rect x="60" y="230" width="80" height="25" fill="#e1bee7" stroke="#7b1fa2" rx="3"/>
+  <text x="100" y="245" text-anchor="middle" class="subcomponent">Primary Agent</text>
+  
+  <rect x="150" y="230" width="90" height="25" fill="#e1bee7" stroke="#7b1fa2" rx="3"/>
+  <text x="195" y="245" text-anchor="middle" class="subcomponent">Governance Agent</text>
+  
+  <rect x="60" y="265" width="90" height="25" fill="#e1bee7" stroke="#7b1fa2" rx="3"/>
+  <text x="105" y="280" text-anchor="middle" class="subcomponent">Summary Agent</text>
+  
+  <rect x="160" y="265" width="80" height="25" fill="#e1bee7" stroke="#7b1fa2" rx="3"/>
+  <text x="200" y="280" text-anchor="middle" class="subcomponent">Base Agent</text>
+  
+  <text x="150" y="305" text-anchor="middle" class="label">Agent Types & Interfaces</text>
+  <text x="150" y="320" text-anchor="middle" class="label">Event Processing Logic</text>
+  
+  <!-- Configuration -->
+  <rect x="550" y="200" width="200" height="140" class="config" rx="8"/>
+  <text x="650" y="220" text-anchor="middle" class="component">Configuration System</text>
+  
+  <rect x="560" y="230" width="80" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="600" y="245" text-anchor="middle" class="subcomponent">Config Loader</text>
+  
+  <rect x="650" y="230" width="90" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="695" y="245" text-anchor="middle" class="subcomponent">Environment</text>
+  
+  <rect x="560" y="265" width="80" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="600" y="280" text-anchor="middle" class="subcomponent">Validation</text>
+  
+  <rect x="650" y="265" width="90" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="695" y="280" text-anchor="middle" class="subcomponent">Hierarchical</text>
+  
+  <text x="650" y="305" text-anchor="middle" class="label">JSON Config Files</text>
+  <text x="650" y="320" text-anchor="middle" class="label">Environment Overrides</text>
+  
+  <!-- Plugin System -->
+  <rect x="50" y="380" width="200" height="140" class="plugins" rx="8"/>
+  <text x="150" y="400" text-anchor="middle" class="component">Plugin System</text>
+  
+  <rect x="60" y="410" width="80" height="25" fill="#ffe0b2" stroke="#f57c00" rx="3"/>
+  <text x="100" y="425" text-anchor="middle" class="subcomponent">Plugin Registry</text>
+  
+  <rect x="150" y="410" width="90" height="25" fill="#ffe0b2" stroke="#f57c00" rx="3"/>
+  <text x="195" y="425" text-anchor="middle" class="subcomponent">Plugin Loader</text>
+  
+  <rect x="60" y="445" width="80" height="25" fill="#ffe0b2" stroke="#f57c00" rx="3"/>
+  <text x="100" y="460" text-anchor="middle" class="subcomponent">Lifecycle</text>
+  
+  <rect x="150" y="445" width="90" height="25" fill="#ffe0b2" stroke="#f57c00" rx="3"/>
+  <text x="195" y="460" text-anchor="middle" class="subcomponent">Dependencies</text>
+  
+  <text x="150" y="485" text-anchor="middle" class="label">Dynamic Plugin Loading</text>
+  <text x="150" y="500" text-anchor="middle" class="label">Dependency Injection</text>
+  
+  <!-- Tools & Types -->
+  <rect x="300" y="380" width="200" height="140" class="tools" rx="8"/>
+  <text x="400" y="400" text-anchor="middle" class="component">Tools & Types</text>
+  
+  <rect x="310" y="410" width="80" height="25" fill="#f8bbd9" stroke="#c2185b" rx="3"/>
+  <text x="350" y="425" text-anchor="middle" class="subcomponent">Tool Executor</text>
+  
+  <rect x="410" y="410" width="80" height="25" fill="#f8bbd9" stroke="#c2185b" rx="3"/>
+  <text x="450" y="425" text-anchor="middle" class="subcomponent">Tool Registry</text>
+  
+  <rect x="310" y="445" width="80" height="25" fill="#f8bbd9" stroke="#c2185b" rx="3"/>
+  <text x="350" y="460" text-anchor="middle" class="subcomponent">Type Definitions</text>
+  
+  <rect x="410" y="445" width="80" height="25" fill="#f8bbd9" stroke="#c2185b" rx="3"/>
+  <text x="450" y="460" text-anchor="middle" class="subcomponent">Interfaces</text>
+  
+  <text x="400" y="485" text-anchor="middle" class="label">TypeScript Types</text>
+  <text x="400" y="500" text-anchor="middle" class="label">Function Definitions</text>
+  
+  <!-- Application Integration -->
+  <rect x="550" y="380" width="200" height="140" class="config" rx="8"/>
+  <text x="650" y="400" text-anchor="middle" class="component">Application Integration</text>
+  
+  <rect x="560" y="410" width="80" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="600" y="425" text-anchor="middle" class="subcomponent">Framework</text>
+  
+  <rect x="650" y="410" width="90" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="695" y="425" text-anchor="middle" class="subcomponent">Bootstrap</text>
+  
+  <rect x="560" y="445" width="80" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="600" y="460" text-anchor="middle" class="subcomponent">Lifecycle</text>
+  
+  <rect x="650" y="445" width="90" height="25" fill="#c8e6c9" stroke="#388e3c" rx="3"/>
+  <text x="695" y="460" text-anchor="middle" class="subcomponent">Integration</text>
+  
+  <text x="650" y="485" text-anchor="middle" class="label">Server.ts Integration</text>
+  <text x="650" y="500" text-anchor="middle" class="label">Service Composition</text>
+  
+  <!-- Arrows showing relationships -->
+  <!-- Core to Agents -->
+  <path d="M 320 170 L 200 200" class="arrow"/>
+  <text x="250" y="185" class="label">Events</text>
+  
+  <!-- Core to Config -->
+  <path d="M 480 170 L 580 200" class="arrow"/>
+  <text x="530" y="185" class="label">Config</text>
+  
+  <!-- Core to Tools -->
+  <path d="M 400 170 L 400 380" class="arrow"/>
+  <text x="410" y="275" class="label">Registry</text>
+  
+  <!-- Core to Plugins -->
+  <path d="M 320 170 L 200 380" class="arrow"/>
+  <text x="250" y="275" class="label">Plugins</text>
+  
+  <!-- Agents to Tools -->
+  <path d="M 250 270 L 300 410" class="arrow"/>
+  <text x="275" y="340" class="label">Tools</text>
+  
+  <!-- Integration arrows -->
+  <path d="M 500 400 L 550 400" class="arrow"/>
+  <text x="525" y="395" class="label">Use</text>
+  
+  <!-- Interface lines -->
+  <path d="M 400 50 L 400 25" class="interface"/>
+  <text x="420" y="40" class="label">External API</text>
+  
+  <!-- Legend -->
+  <rect x="20" y="50" width="120" height="120" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="80" y="70" text-anchor="middle" class="component">Legend</text>
+  <rect x="30" y="80" width="15" height="10" class="core"/>
+  <text x="50" y="90" class="label">Core Framework</text>
+  <rect x="30" y="100" width="15" height="10" class="agents"/>
+  <text x="50" y="110" class="label">Agent System</text>
+  <rect x="30" y="120" width="15" height="10" class="config"/>
+  <text x="50" y="130" class="label">Configuration</text>
+  <rect x="30" y="140" width="15" height="10" class="plugins"/>
+  <text x="50" y="150" class="label">Plugin System</text>
+  
+</svg>

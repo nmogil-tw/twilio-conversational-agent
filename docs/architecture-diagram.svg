@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .component { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 10px; fill: #666; }
+      .box { fill: #f8f9fa; stroke: #333; stroke-width: 2; }
+      .framework { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .twilio { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .ui { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .external { fill: #e8f5e8; stroke: #388e3c; stroke-width: 2; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .data-flow { stroke: #666; stroke-width: 1; stroke-dasharray: 5,5; fill: none; }
+    </style>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Twilio Conversational Agent - System Architecture</text>
+  
+  <!-- External Services -->
+  <rect x="50" y="60" width="120" height="80" class="external" rx="5"/>
+  <text x="110" y="85" text-anchor="middle" class="component">External Services</text>
+  <text x="110" y="100" text-anchor="middle" class="label">• Twilio Voice</text>
+  <text x="110" y="115" text-anchor="middle" class="label">• OpenAI GPT</text>
+  <text x="110" y="130" text-anchor="middle" class="label">• Pinecone</text>
+  
+  <!-- Web UI -->
+  <rect x="630" y="60" width="120" height="80" class="ui" rx="5"/>
+  <text x="690" y="85" text-anchor="middle" class="component">Web UI</text>
+  <text x="690" y="100" text-anchor="middle" class="label">Next.js Dashboard</text>
+  <text x="690" y="115" text-anchor="middle" class="label">Real-time Monitor</text>
+  <text x="690" y="130" text-anchor="middle" class="label">Agent Control</text>
+  
+  <!-- Main Server -->
+  <rect x="250" y="180" width="300" height="60" class="box" rx="5"/>
+  <text x="400" y="205" text-anchor="middle" class="component">Express Server (server.ts)</text>
+  <text x="400" y="220" text-anchor="middle" class="label">HTTP API + WebSocket + Framework Bootstrap</text>
+  
+  <!-- Framework Core -->
+  <rect x="80" y="280" width="200" height="140" class="framework" rx="5"/>
+  <text x="180" y="305" text-anchor="middle" class="component">Framework Core (src/)</text>
+  <text x="180" y="325" text-anchor="middle" class="label">• Event Bus</text>
+  <text x="180" y="340" text-anchor="middle" class="label">• Service Registry</text>
+  <text x="180" y="355" text-anchor="middle" class="label">• Configuration</text>
+  <text x="180" y="370" text-anchor="middle" class="label">• Agent Management</text>
+  <text x="180" y="385" text-anchor="middle" class="label">• Plugin System</text>
+  <text x="180" y="400" text-anchor="middle" class="label">• Logging</text>
+  
+  <!-- Completion Server -->
+  <rect x="320" y="280" width="160" height="140" class="twilio" rx="5"/>
+  <text x="400" y="305" text-anchor="middle" class="component">Completion Server</text>
+  <text x="400" y="325" text-anchor="middle" class="label">• Conscious Loop</text>
+  <text x="400" y="340" text-anchor="middle" class="label">• Session Store</text>
+  <text x="400" y="355" text-anchor="middle" class="label">• Twilio Webhooks</text>
+  <text x="400" y="370" text-anchor="middle" class="label">• Voice Processing</text>
+  <text x="400" y="385" text-anchor="middle" class="label">• Agent Config</text>
+  <text x="400" y="400" text-anchor="middle" class="label">• WebSocket Relay</text>
+  
+  <!-- Services -->
+  <rect x="520" y="280" width="160" height="140" class="box" rx="5"/>
+  <text x="600" y="305" text-anchor="middle" class="component">Services</text>
+  <text x="600" y="325" text-anchor="middle" class="label">• Vector Store</text>
+  <text x="600" y="340" text-anchor="middle" class="label">• Context Retrieval</text>
+  <text x="600" y="355" text-anchor="middle" class="label">• User Analytics</text>
+  <text x="600" y="370" text-anchor="middle" class="label">• Segment Integration</text>
+  <text x="600" y="385" text-anchor="middle" class="label">• Pinecone Client</text>
+  <text x="600" y="400" text-anchor="middle" class="label">• Embedding Search</text>
+  
+  <!-- Modules -->
+  <rect x="250" y="460" width="300" height="80" class="box" rx="5"/>
+  <text x="400" y="485" text-anchor="middle" class="component">Feature Modules</text>
+  <text x="320" y="505" text-anchor="middle" class="label">• Flex Transfer</text>
+  <text x="400" y="505" text-anchor="middle" class="label">• Governance</text>
+  <text x="480" y="505" text-anchor="middle" class="label">• Summarization</text>
+  <text x="320" y="520" text-anchor="middle" class="label">• Human-in-Loop</text>
+  <text x="400" y="520" text-anchor="middle" class="label">• Call Analytics</text>
+  <text x="480" y="520" text-anchor="middle" class="label">• Agent Tools</text>
+  
+  <!-- Integration Server -->
+  <rect x="80" y="460" width="140" height="80" class="external" rx="5"/>
+  <text x="150" y="485" text-anchor="middle" class="component">Integration Server</text>
+  <text x="150" y="505" text-anchor="middle" class="label">Mock Database</text>
+  <text x="150" y="520" text-anchor="middle" class="label">External APIs</text>
+  
+  <!-- Arrows -->
+  <!-- External to Server -->
+  <path d="M 170 100 L 250 210" class="arrow"/>
+  <text x="200" y="150" class="label">Voice Calls</text>
+  
+  <!-- Server to Framework -->
+  <path d="M 320 240 L 220 280" class="arrow"/>
+  
+  <!-- Server to Completion -->
+  <path d="M 400 240 L 400 280" class="arrow"/>
+  
+  <!-- Server to Services -->
+  <path d="M 480 240 L 560 280" class="arrow"/>
+  
+  <!-- Server to UI -->
+  <path d="M 550 210 L 630 100" class="arrow"/>
+  <text x="580" y="150" class="label">WebSocket</text>
+  
+  <!-- Framework to Completion -->
+  <path d="M 280 350 L 320 350" class="arrow"/>
+  <text x="300" y="340" class="label">Events</text>
+  
+  <!-- Completion to Services -->
+  <path d="M 480 350 L 520 350" class="arrow"/>
+  
+  <!-- Services to External -->
+  <path d="M 600 280 L 150 140" class="data-flow"/>
+  <text x="350" y="200" class="label">API Calls</text>
+  
+  <!-- Server to Modules -->
+  <path d="M 400 240 L 400 460" class="arrow"/>
+  
+  <!-- Framework to Integration -->
+  <path d="M 180 420 L 150 460" class="arrow"/>
+  
+  <!-- Legend -->
+  <rect x="600" y="460" width="150" height="120" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="675" y="480" text-anchor="middle" class="component">Legend</text>
+  <rect x="610" y="490" width="15" height="10" class="framework"/>
+  <text x="635" y="500" class="label">Framework Core</text>
+  <rect x="610" y="510" width="15" height="10" class="twilio"/>
+  <text x="635" y="520" class="label">Twilio Integration</text>
+  <rect x="610" y="530" width="15" height="10" class="ui"/>
+  <text x="635" y="540" class="label">Web UI</text>
+  <rect x="610" y="550" width="15" height="10" class="external"/>
+  <text x="635" y="560" class="label">External/Mock</text>
+  
+</svg>

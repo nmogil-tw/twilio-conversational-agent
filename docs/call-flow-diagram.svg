@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .actor { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #333; }
+      .step { font-family: Arial, sans-serif; font-size: 10px; fill: #333; }
+      .step-num { font-family: Arial, sans-serif; font-size: 10px; fill: #fff; font-weight: bold; }
+      .lifeline { stroke: #ccc; stroke-width: 2; stroke-dasharray: 5,5; }
+      .message { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .return { stroke: #666; stroke-width: 1; stroke-dasharray: 3,3; fill: none; marker-end: url(#arrowhead-return); }
+      .actor-box { fill: #f8f9fa; stroke: #333; stroke-width: 2; }
+      .step-circle { fill: #1976d2; stroke: #1976d2; stroke-width: 2; }
+      .note { fill: #fff3e0; stroke: #f57c00; stroke-width: 1; }
+    </style>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+      </marker>
+      <marker id="arrowhead-return" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">Voice Call Flow - Twilio Conversational Agent</text>
+  
+  <!-- Actors -->
+  <rect x="50" y="60" width="80" height="40" class="actor-box" rx="5"/>
+  <text x="90" y="85" text-anchor="middle" class="actor">Caller</text>
+  
+  <rect x="180" y="60" width="80" height="40" class="actor-box" rx="5"/>
+  <text x="220" y="85" text-anchor="middle" class="actor">Twilio</text>
+  
+  <rect x="310" y="60" width="100" height="40" class="actor-box" rx="5"/>
+  <text x="360" y="85" text-anchor="middle" class="actor">Express Server</text>
+  
+  <rect x="460" y="60" width="100" height="40" class="actor-box" rx="5"/>
+  <text x="510" y="85" text-anchor="middle" class="actor">Completion Server</text>
+  
+  <rect x="610" y="60" width="80" height="40" class="actor-box" rx="5"/>
+  <text x="650" y="85" text-anchor="middle" class="actor">Framework</text>
+  
+  <rect x="740" y="60" width="80" height="40" class="actor-box" rx="5"/>
+  <text x="780" y="85" text-anchor="middle" class="actor">OpenAI</text>
+  
+  <!-- Lifelines -->
+  <path d="M 90 100 L 90 650" class="lifeline"/>
+  <path d="M 220 100 L 220 650" class="lifeline"/>
+  <path d="M 360 100 L 360 650" class="lifeline"/>
+  <path d="M 510 100 L 510 650" class="lifeline"/>
+  <path d="M 650 100 L 650 650" class="lifeline"/>
+  <path d="M 780 100 L 780 650" class="lifeline"/>
+  
+  <!-- Step 1: Incoming Call -->
+  <circle cx="25" cy="130" r="8" class="step-circle"/>
+  <text x="25" y="135" text-anchor="middle" class="step-num">1</text>
+  <path d="M 90 130 L 220 130" class="message"/>
+  <text x="155" y="125" text-anchor="middle" class="step">Incoming Call</text>
+  
+  <!-- Step 2: Webhook to Server -->
+  <circle cx="25" cy="160" r="8" class="step-circle"/>
+  <text x="25" y="165" text-anchor="middle" class="step-num">2</text>
+  <path d="M 220 160 L 360 160" class="message"/>
+  <text x="290" y="155" text-anchor="middle" class="step">POST /incoming-call</text>
+  
+  <!-- Step 3: Initialize Session -->
+  <circle cx="25" cy="190" r="8" class="step-circle"/>
+  <text x="25" y="195" text-anchor="middle" class="step-num">3</text>
+  <path d="M 360 190 L 510 190" class="message"/>
+  <text x="435" y="185" text-anchor="middle" class="step">Initialize Session</text>
+  
+  <!-- Step 4: Setup Framework -->
+  <circle cx="25" cy="220" r="8" class="step-circle"/>
+  <text x="25" y="225" text-anchor="middle" class="step-num">4</text>
+  <path d="M 510 220 L 650 220" class="message"/>
+  <text x="580" y="215" text-anchor="middle" class="step">Setup Agents</text>
+  
+  <!-- Step 5: Return TwiML -->
+  <circle cx="25" cy="250" r="8" class="step-circle"/>
+  <text x="25" y="255" text-anchor="middle" class="step-num">5</text>
+  <path d="M 510 250 L 360 250" class="return"/>
+  <path d="M 360 250 L 220 250" class="return"/>
+  <text x="290" y="245" text-anchor="middle" class="step">TwiML Response</text>
+  
+  <!-- Step 6: WebSocket Connection -->
+  <circle cx="25" cy="280" r="8" class="step-circle"/>
+  <text x="25" y="285" text-anchor="middle" class="step-num">6</text>
+  <path d="M 220 280 L 360 280" class="message"/>
+  <text x="290" y="275" text-anchor="middle" class="step">WebSocket Connect</text>
+  
+  <!-- Step 7: Voice Processing Loop -->
+  <rect x="320" y="310" width="200" height="30" class="note" rx="5"/>
+  <text x="420" y="330" text-anchor="middle" class="step">Voice Processing Loop</text>
+  
+  <!-- Step 8: Audio Stream -->
+  <circle cx="25" cy="350" r="8" class="step-circle"/>
+  <text x="25" y="355" text-anchor="middle" class="step-num">8</text>
+  <path d="M 220 350 L 360 350" class="message"/>
+  <text x="290" y="345" text-anchor="middle" class="step">Audio Stream</text>
+  
+  <!-- Step 9: Process Audio -->
+  <circle cx="25" cy="380" r="8" class="step-circle"/>
+  <text x="25" y="385" text-anchor="middle" class="step-num">9</text>
+  <path d="M 360 380 L 510 380" class="message"/>
+  <text x="435" y="375" text-anchor="middle" class="step">Process Audio</text>
+  
+  <!-- Step 10: Generate Response -->
+  <circle cx="25" cy="410" r="8" class="step-circle"/>
+  <text x="25" y="415" text-anchor="middle" class="step-num">10</text>
+  <path d="M 510 410 L 650 410" class="message"/>
+  <text x="580" y="405" text-anchor="middle" class="step">Trigger Agent</text>
+  
+  <!-- Step 11: LLM Call -->
+  <circle cx="25" cy="440" r="8" class="step-circle"/>
+  <text x="25" y="445" text-anchor="middle" class="step-num">11</text>
+  <path d="M 650 440 L 780 440" class="message"/>
+  <text x="715" y="435" text-anchor="middle" class="step">OpenAI API</text>
+  
+  <!-- Step 12: LLM Response -->
+  <circle cx="25" cy="470" r="8" class="step-circle"/>
+  <text x="25" y="475" text-anchor="middle" class="step-num">12</text>
+  <path d="M 780 470 L 650 470" class="return"/>
+  <text x="715" y="465" text-anchor="middle" class="step">AI Response</text>
+  
+  <!-- Step 13: Process Response -->
+  <circle cx="25" cy="500" r="8" class="step-circle"/>
+  <text x="25" y="505" text-anchor="middle" class="step-num">13</text>
+  <path d="M 650 500 L 510 500" class="return"/>
+  <text x="580" y="495" text-anchor="middle" class="step">Agent Response</text>
+  
+  <!-- Step 14: Generate Audio -->
+  <circle cx="25" cy="530" r="8" class="step-circle"/>
+  <text x="25" y="535" text-anchor="middle" class="step-num">14</text>
+  <path d="M 510 530 L 360 530" class="return"/>
+  <text x="435" y="525" text-anchor="middle" class="step">Audio Response</text>
+  
+  <!-- Step 15: Stream to Caller -->
+  <circle cx="25" cy="560" r="8" class="step-circle"/>
+  <text x="25" y="565" text-anchor="middle" class="step-num">15</text>
+  <path d="M 360 560 L 220 560" class="return"/>
+  <path d="M 220 560 L 90 560" class="return"/>
+  <text x="155" y="555" text-anchor="middle" class="step">Audio to Caller</text>
+  
+  <!-- Step 16: Loop -->
+  <rect x="400" y="590" width="160" height="30" class="note" rx="5"/>
+  <text x="480" y="610" text-anchor="middle" class="step">Loop until call ends</text>
+  
+  <!-- Step 17: Call End -->
+  <circle cx="25" cy="630" r="8" class="step-circle"/>
+  <text x="25" y="635" text-anchor="middle" class="step-num">17</text>
+  <path d="M 90 630 L 220 630" class="message"/>
+  <text x="155" y="625" text-anchor="middle" class="step">Call Ends</text>
+  
+  <!-- Side Notes -->
+  <rect x="20" y="210" width="160" height="60" class="note" rx="5"/>
+  <text x="100" y="230" text-anchor="middle" class="step">Key Components:</text>
+  <text x="100" y="245" text-anchor="middle" class="step">• Session Store (Twilio Sync)</text>
+  <text x="100" y="260" text-anchor="middle" class="step">• WebSocket Relay</text>
+  
+  <rect x="720" y="300" width="160" height="80" class="note" rx="5"/>
+  <text x="800" y="320" text-anchor="middle" class="step">Agent Processing:</text>
+  <text x="800" y="335" text-anchor="middle" class="step">• Context Retrieval</text>
+  <text x="800" y="350" text-anchor="middle" class="step">• Tool Execution</text>
+  <text x="800" y="365" text-anchor="middle" class="step">• Response Generation</text>
+  
+</svg>
