@@ -1,0 +1,40 @@
+{
+  "framework": {
+    "environment": "development"
+  },
+  "agents": {
+    "primary": {
+      "model": "gpt-4o-mini",
+      "temperature": 0.8
+    },
+    "governance": {
+      "frequency": 10000
+    },
+    "summarization": {
+      "frequency": 30000
+    }
+  },
+  "integrations": {
+    "twilio": {
+      "voice": {
+        "recordCalls": false
+      }
+    },
+    "vectorStore": {
+      "contextRetrieval": {
+        "maxDays": 30
+      }
+    }
+  },
+  "eventBus": {
+    "historyLimit": 500
+  },
+  "logging": {
+    "level": "debug",
+    "enableStructured": true
+  },
+  "server": {
+    "port": 3001,
+    "timeout": 60000
+  }
+}

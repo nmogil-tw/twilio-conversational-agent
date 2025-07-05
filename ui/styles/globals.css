@@ -1,0 +1,35 @@
+:root {
+  --logo-width: 200px;
+  --main-padding: 5%;
+  --background-color: var(--mantine-color-gray-1);
+}
+
+header,
+main {
+  padding: 12px var(--main-padding);
+}
+
+body {
+  background-color: var(--mantine-color-gray-1) !important;
+}
+
+header {
+  background-color: white !important;
+  border-bottom: 1px solid var(--mantine-color-gray-2);
+  box-shadow: var(--mantine-shadow-xs);
+  display: flex;
+  align-items: center;
+  height: 80px;
+  justify-content: space-between;
+}
+
+.header-logo {
+  width: var(--logo-width);
+  height: auto;
+}
+
+.paper {
+  --paper-shadow: var(--mantine-shadow-xs);
+  border: 1px solid var(--mantine-color-gray-3);
+  padding: 8px;
+}

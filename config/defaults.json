@@ -1,0 +1,105 @@
+{
+  "framework": {
+    "name": "Twilio Agentic Voice Assistant",
+    "version": "1.0.0",
+    "environment": "development"
+  },
+  "agents": {
+    "primary": {
+      "type": "conversation",
+      "enabled": true,
+      "model": "gpt-4o",
+      "maxTokens": 4096,
+      "temperature": 0.7,
+      "capabilities": ["conversation", "tool-execution", "human-handoff"]
+    },
+    "governance": {
+      "type": "governance",
+      "enabled": true,
+      "model": "gpt-4o-mini",
+      "frequency": 5000,
+      "capabilities": ["analysis", "governance"]
+    },
+    "summarization": {
+      "type": "summarization", 
+      "enabled": true,
+      "model": "gpt-4o-mini",
+      "frequency": 15000,
+      "capabilities": ["analysis", "summarization"]
+    }
+  },
+  "tools": {
+    "enabled": [
+      "getProfileTraits",
+      "getProfileEvents", 
+      "identify_user",
+      "getEntity",
+      "getUserByEmailOrPhone",
+      "searchCustomerTransactions",
+      "createDisputeCase",
+      "transferDisputeToAgent",
+      "askAgent",
+      "transferToAgent"
+    ],
+    "categories": {
+      "profile": ["getProfileTraits", "getProfileEvents", "identify_user"],
+      "data": ["getEntity", "getUserByEmailOrPhone", "searchCustomerTransactions"],
+      "disputes": ["createDisputeCase", "transferDisputeToAgent"],
+      "handoff": ["askAgent", "transferToAgent"]
+    }
+  },
+  "integrations": {
+    "twilio": {
+      "enabled": true,
+      "voice": {
+        "enabled": true,
+        "recordCalls": true
+      },
+      "sync": {
+        "enabled": true,
+        "sessionTtl": 3600
+      },
+      "flex": {
+        "enabled": true,
+        "transferEnabled": true
+      }
+    },
+    "segment": {
+      "enabled": true,
+      "tracking": {
+        "enabled": true,
+        "trackConversations": true
+      },
+      "profiles": {
+        "enabled": true,
+        "cacheTraits": true
+      }
+    },
+    "vectorStore": {
+      "enabled": true,
+      "provider": "pinecone",
+      "embeddingModel": "text-embedding-3-large",
+      "contextRetrieval": {
+        "enabled": true,
+        "maxDays": 90,
+        "minScore": 0.2
+      }
+    }
+  },
+  "eventBus": {
+    "enablePatternMatching": true,
+    "enableEventHistory": true,
+    "historyLimit": 1000,
+    "maxListeners": 100
+  },
+  "logging": {
+    "level": "info",
+    "enableConsole": true,
+    "enableStructured": false
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "timeout": 30000
+  }
+}

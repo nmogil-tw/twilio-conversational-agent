@@ -1,0 +1,51 @@
+{
+  "framework": {
+    "environment": "production"
+  },
+  "agents": {
+    "primary": {
+      "model": "gpt-4o",
+      "temperature": 0.6
+    },
+    "governance": {
+      "frequency": 3000
+    },
+    "summarization": {
+      "frequency": 10000
+    }
+  },
+  "integrations": {
+    "twilio": {
+      "voice": {
+        "recordCalls": true
+      },
+      "sync": {
+        "sessionTtl": 7200
+      }
+    },
+    "segment": {
+      "tracking": {
+        "trackConversations": true
+      }
+    },
+    "vectorStore": {
+      "contextRetrieval": {
+        "maxDays": 180,
+        "minScore": 0.3
+      }
+    }
+  },
+  "eventBus": {
+    "historyLimit": 2000,
+    "maxListeners": 200
+  },
+  "logging": {
+    "level": "info",
+    "enableStructured": true,
+    "enableConsole": false
+  },
+  "server": {
+    "port": 3000,
+    "timeout": 15000
+  }
+}

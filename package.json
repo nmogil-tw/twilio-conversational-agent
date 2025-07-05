@@ -1,0 +1,127 @@
+{
+  "name": "twilio-agent-framework",
+  "version": "1.0.0",
+  "description": "A modular, event-driven framework for building AI agent systems with Twilio integration",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./agents": {
+      "import": "./dist/agents/index.js",
+      "types": "./dist/agents/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "config/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "nodemon --exec tsx server.ts --delay 1500ms",
+    "start": "tsx server.ts",
+    "ui": "cd ui && npm run dev",
+    "test": "vitest",
+    "test:unit": "vitest run tests/unit/",
+    "test:integration": "vitest run tests/integration/",
+    "test:e2e": "vitest run tests/e2e/",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "demo": "tsx tests/manual/demo-script.ts",
+    "demo:benchmark": "tsx tests/manual/demo-script.ts --benchmark",
+    "example": "tsx examples/basic-usage/index.ts",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build && npm run test",
+    "clear:sessions": "tsx scripts/sessions/clear.ts",
+    "clear": "npm run clear:sessions",
+    "deploy:railway": "node scripts/deploy-railway.js",
+    "grok": "tsx scripts/ngrok.ts",
+    "setup:apikey": "tsx scripts/setup/api-key.ts",
+    "setup:flex": "tsx scripts/setup/flex.ts",
+    "setup:info": "tsx scripts/setup/info.ts",
+    "setup:phone": "tsx scripts/setup/phone.ts",
+    "setup:sync": "tsx scripts/setup/sync.ts",
+    "setup:ui": "tsx scripts/setup/ui.ts",
+    "setup:vi": "tsx scripts/setup/voice-intelligence.ts",
+    "setup": "tsx scripts/setup/index.ts"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "framework",
+    "twilio",
+    "conversation",
+    "llm",
+    "openai",
+    "event-driven",
+    "modular",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/twilio-agent-framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/twilio-agent-framework/issues"
+  },
+  "homepage": "https://github.com/yourusername/twilio-agent-framework#readme",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^6.1.1",
+    "@twilio/conversations": "^2.6.1",
+    "deep-diff": "^1.0.2",
+    "dotenv-flow": "^4.1.0",
+    "express": "^4.21.2",
+    "express-ws": "^5.0.2",
+    "lodash.debounce": "^4.0.8",
+    "lodash.result": "^4.5.2",
+    "openai": "^4.83.0",
+    "p-queue": "^8.1.0",
+    "twilio": "^5.4.3",
+    "twilio-sync": "^3.3.5",
+    "uuid": "^11.0.5",
+    "ws": "^8.18.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/deep-diff": "^1.0.5",
+    "@types/express": "^5.0.0",
+    "@types/express-ws": "^3.0.5",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/lodash.result": "^4.5.9",
+    "@types/node": "^22.13.1",
+    "@types/p-queue": "^3.2.1",
+    "@types/twilio": "^3.19.3",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.14",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3",
+    "tsx": "^3.12.10",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0"
+  },
+  "peerDependencies": {
+    "twilio": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "twilio": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
