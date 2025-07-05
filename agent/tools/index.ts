@@ -27,15 +27,3 @@ const toolFunctionRegistry = new Map<string, ToolExecutor<any>>([
 export const getToolExecutor = (key: string): ToolExecutor<any> | undefined => {
   return toolFunctionRegistry.get(key);
 };
-
-export const tools = toolManifest;
-
-export function getToolsByCapability(capability: string) {
-  return toolManifest.filter(tool => 
-    tool.description.toLowerCase().includes(capability.toLowerCase())
-  );
-}
-
-export function getAllTools() {
-  return toolManifest;
-}
